@@ -2,8 +2,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const Product = require('./models/product')
 
-const  Product = require('./models/product')
+//const  Product = require('./models/product')
 
 //server
 const app = express()
@@ -96,15 +97,15 @@ app.delete('/api/product/: productId', (req, res) => {
 //server config
 const server = app.listen(port, () => {
 
-    console.log( `Servidor conectado http://127.0.0.1:${ server.address().port }` )
+    console.log( `Servidor conectado http://localhost:${ server.address().port }` )
 })
 
-mongoose.connect('mongodb://127.0.0.1:27017/pruebaOne', (err,res)=>{
+mongoose.connect('mongodb://127.0.0.1:27017/shopp', (err,res)=>{
 
     if (err)throw err
     console.log('Database connection ok')
 
     const server = app.listen(port, ()=> {
-        console.log(`Listening http://127.0.0.1:${server.address().port}`)
+        console.log(`Listening http://localhost:${server.address().port}`)
     })
 })
